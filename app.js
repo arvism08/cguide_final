@@ -22,8 +22,8 @@ const userSchema = new mongoose.Schema({
   fname:String,
   lname:String
 });
-// process.env.SECRET
-userSchema.plugin(encrypt, { secret:"ThisisSanskar", encryptedFields: ["password"]});
+
+userSchema.plugin(encrypt, { secret:process.env.SECRET, encryptedFields: ["password"]});
 
 const commentSchema = new mongoose.Schema({
   comment: String,
